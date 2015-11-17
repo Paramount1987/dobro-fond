@@ -4,7 +4,7 @@ $(document).ready(function() {
        navigation: true,
        scrollOverflow: true,
        responsiveWidth: 1000,
-       scrollingSpeed: 1200,
+       scrollingSpeed: 1500,
        afterRender: function(){
        	$.fn.fullpage.reBuild();
        },

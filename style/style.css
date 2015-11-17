@@ -496,8 +496,8 @@ h3 { font-weight: normal; font-size: 24px; }
 
 .form-wrapper { position: relative; background: #1680CF url("../images/pattern3.svg") no-repeat; background-size: cover; color: #fff; padding: 70px 0 100px 0; }
 .form-wrapper .btn-default { margin-top: 25px; }
-.form-wrapper .waves-top { bottom: 0; }
-.form-wrapper .waves-bottom { top: 0; }
+.form-wrapper .waves-top { bottom: -3px; }
+.form-wrapper .waves-bottom { top: -3px; }
 
 .form-group { margin: 25px 0 0 0; color: #000; font-weight: 600; text-align: left; }
 .form-group label { display: block; margin: 0 0 10px 0; color: #fff; font-size: 14px; font-weight: normal; }
@@ -523,7 +523,7 @@ h3 { font-weight: normal; font-size: 24px; }
 .upload-group { padding: 0 0 0 40px; }
 .upload-group input { width: 0px; height: 0px; overflow: hidden; }
 
-.file-upload { position: relative; padding: 0 0 0 40px; }
+.file-upload { position: relative; display: inline-block; cursor: pointer; padding: 0 0 0 40px; }
 .file-upload .download-btn { display: inline-block; font-weight: 600; font-size: 16px; max-width: 250px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .file-upload:before { content: ""; position: absolute; top: 0; left: 0; width: 35px; height: 25px; background: url("../images/i/sprite.svg") no-repeat; background-size: 200px 200px; background-position: 1px -130px; }
 
