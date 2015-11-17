@@ -506,7 +506,9 @@ h3 { font-weight: normal; font-size: 24px; }
 .form-group-inline { width: 435px; }
 
 .form-control { display: block; width: 100%; padding: 9px 16px; border-radius: 5px; border: 2px solid #fff; outline: 0; -webkit-transition: all linear 0.2s; -o-transition: all linear 0.2s; transition: all linear 0.2s; }
-.form-control:focus { border-color: #FF9630; }
+.form-control:focus { border-color: #FF9630 !important; }
+
+.form-control.error { border-color: #FF1D25; }
 
 .checkbox-group { position: relative; }
 .checkbox-group input { position: absolute; top: 0; left: 0; width: 24px; height: 24px; opacity: 0; filter: alpha(opacity=0); }
@@ -516,6 +518,8 @@ h3 { font-weight: normal; font-size: 24px; }
 .checkbox-group input:hover + label:before { background: #BFBFBF url("../images/i/sprite.svg") no-repeat; background-size: 200px 200px; background-position: 2px -163px; }
 
 .checkbox-group input:checked + label:before { background: #FF9630 url("../images/i/sprite.svg") no-repeat; background-size: 200px 200px; background-position: 2px -163px; }
+
+.text-send { font: 600 15px/18px "Open Sans", sans-serif; }
 
 .btn-default { width: 375px; font: bold 18px/54px "Open Sans", sans-serif; border-radius: 5px; border: 0; outline: 0; background: #BFBFBF; -webkit-transition: all linear 0.2s; -o-transition: all linear 0.2s; transition: all linear 0.2s; }
 .btn-default:hover { background: #a6a6a6; }
