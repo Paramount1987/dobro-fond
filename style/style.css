@@ -365,7 +365,7 @@ h3 { font-weight: normal; font-size: 24px; }
 /* preloading images */
 .owl-item.loading { min-height: 150px; background: url(AjaxLoader.gif) no-repeat center center; }
 
-.page1 { position: relative; background: url("../images/house.jpg") no-repeat; background-size: cover; }
+.page1 { position: relative; background-image: url("../images/house.jpg"); background-size: cover; }
 .page1 .overlay { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; background: #1680CF; opacity: 0.8; filter: alpha(opacity=80); }
 .page1 .waves { bottom: 0; }
 
@@ -436,9 +436,12 @@ h3 { font-weight: normal; font-size: 24px; }
 
 .list-conditions li.third:before { background-position: 0 -67px; }
 
-.page3 { position: relative; padding: 60px 0 80px 0; background: #E8F1F4 url("../images/pattern.svg") no-repeat; background-size: cover; font-size: 16px; }
-.page3 .waves-top { bottom: 0; }
-.page3 .waves-bottom { top: 0; }
+.page3 { background: #E8F1F4; font-size: 16px; }
+.page3 .inner { background: url("../images/pattern.svg"); background-size: cover; background-attachment: fixed; }
+.page3 .inner .waves-top { bottom: 0; }
+.page3 .inner .waves-bottom { top: 0; }
+
+.page3 .waves-wrap { position: relative; padding: 60px 0 80px 0; }
 
 #map { height: 440px; }
 
@@ -476,9 +479,12 @@ h3 { font-weight: normal; font-size: 24px; }
 
 .page4.active .list-advantage li.fifth { -webkit-animation-delay: 1.5s; -webkit-animation-duration: 0.9s; -webkit-animation-name: toBottom; -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */ -moz-animation-delay: 1.5s; -moz-animation-duration: 0.9s; -moz-animation-name: toBottom; -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */ -o-animation-delay: 1.5s; -o-animation-duration: 0.9s; -o-animation-name: toBottom; -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */ animation-delay: 1.5s; animation-duration: 0.9s; animation-name: toBottom; animation-fill-mode: forwards; /* this prevents the animation from restarting! */ }
 
-.page5 { position: relative; padding: 60px 0 80px 0; background: #F1EDE2 url("../images/pattern2.svg") no-repeat; background-size: cover; }
-.page5 .waves-top { bottom: 0; }
-.page5 .waves-bottom { top: 0; }
+.page5 { background: #F1EDE2; }
+.page5 .inner { background: url("../images/pattern2.svg"); background-size: cover; background-attachment: fixed; }
+.page5 .inner .waves-top { bottom: 0; }
+.page5 .inner .waves-bottom { top: 0; }
+
+.page5 .waves-wrap { position: relative; padding: 60px 0 80px 0; }
 
 .list-gallery { margin: 30px 0 0 -1.5%; padding: 0; list-style: none; font-size: 0; }
 .list-gallery li { display: inline-block; width: 23.5%; margin: 13.5px 0 0 1.5%; }
@@ -494,10 +500,18 @@ h3 { font-weight: normal; font-size: 24px; }
 
 .list-gallery a:hover:after { opacity: 0.8; filter: alpha(opacity=80); }
 
-.form-wrapper { position: relative; background: #1680CF url("../images/pattern3.svg") no-repeat; background-size: cover; color: #fff; padding: 70px 0 100px 0; }
+.form-wrapper { background: #1680CF; color: #fff; }
 .form-wrapper .btn-default { margin-top: 25px; }
 .form-wrapper .waves-top { bottom: -3px; }
 .form-wrapper .waves-bottom { top: -3px; }
+
+.waves-wrap { position: relative; }
+.waves-wrap .waves-top { bottom: -3px; }
+.waves-wrap .waves-bottom { top: -3px; }
+
+.form-wrapper .waves-wrap { padding: 70px 0 100px 0; }
+
+.form-wrapper .inner { background-image: url("../images/pattern3.svg"); background-attachment: fixed; background-size: cover; }
 
 .form-group { margin: 25px 0 0 0; color: #000; font-weight: 600; text-align: left; }
 .form-group label { display: block; margin: 0 0 10px 0; color: #fff; font-size: 14px; font-weight: normal; }
