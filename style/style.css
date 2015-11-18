@@ -476,7 +476,7 @@ h3 { font-weight: normal; font-size: 24px; }
 
 .page4.active .list-advantage li.fifth { -webkit-animation-delay: 1.5s; -webkit-animation-duration: 0.9s; -webkit-animation-name: toBottom; -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */ -moz-animation-delay: 1.5s; -moz-animation-duration: 0.9s; -moz-animation-name: toBottom; -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */ -o-animation-delay: 1.5s; -o-animation-duration: 0.9s; -o-animation-name: toBottom; -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */ animation-delay: 1.5s; animation-duration: 0.9s; animation-name: toBottom; animation-fill-mode: forwards; /* this prevents the animation from restarting! */ }
 
-.page5 { background: #F1EDE2 url("../images/pattern2.svg") no-repeat; background-size: cover; }
+.page5 { position: relative; padding: 60px 0 80px 0; background: #F1EDE2 url("../images/pattern2.svg") no-repeat; background-size: cover; }
 .page5 .waves-top { bottom: 0; }
 .page5 .waves-bottom { top: 0; }
 
