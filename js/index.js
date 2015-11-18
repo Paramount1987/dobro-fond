@@ -1,5 +1,6 @@
 $(document).ready(function() {
 		//one page slider
+    var baloon = false;
     $('#pages').fullpage({
        navigation: true,
        scrollOverflow: true,
@@ -17,8 +18,16 @@ $(document).ready(function() {
                 $(".baloon").addClass('active'); 
                 
                 setTimeout(function(){
-                  $(".baloon").removeClass('active')
-                },1000);
+                  $(".baloon").removeClass('active');
+                  baloon = true;
+                  $.fn.fullpage.moveTo(2);
+                },800);
+                setTimeout(function(){baloon = false;},900);
+
+                if(!baloon) {
+
+                  return false;
+                }
             }
         }
     });
