@@ -285,7 +285,7 @@ html.fp-enabled, .fp-enabled body { margin: 0; padding: 0; overflow: hidden; min
   .fp-slide { page-break-after: always !important; } }
 .page6 h2 { font-size: 32px; text-align: center; }
 
-.main .page_container { position: relative; z-index: 20; max-width: 920px; padding: 20px 15px; margin: 0 auto; text-align: center; }
+.page_container { position: relative; z-index: 20; max-width: 920px; padding: 20px 15px; margin: 0 auto; text-align: center; }
 
 .image-scroll { outline: 0; height: 500px; margin-top: 50px; }
 
@@ -436,7 +436,7 @@ h3 { font-weight: normal; font-size: 24px; }
 
 .list-conditions li.third:before { background-position: 0 -67px; }
 
-.page3 { background: #E8F1F4 url("../images/pattern.svg") no-repeat; background-size: cover; font-size: 16px; }
+.page3 { position: relative; padding: 60px 0 80px 0; background: #E8F1F4 url("../images/pattern.svg") no-repeat; background-size: cover; font-size: 16px; }
 .page3 .waves-top { bottom: 0; }
 .page3 .waves-bottom { top: 0; }
 
@@ -445,7 +445,7 @@ h3 { font-weight: normal; font-size: 24px; }
 .page4 { overflow: hidden; font-size: 16px; }
 
 .list-advantage { padding: 0; margin: 20px 0 10px -35px; list-style: none; text-align: center; }
-.list-advantage li { position: relative; display: inline-block; vertical-align: top; width: 250px; font-size: 15px; margin: 30px 0 0 35px; -webkit-transform: translate(0, -800%); -ms-transform: translate(0, -800%); -o-transform: translate(0, -800%); transform: translate(0, -800%); }
+.list-advantage li { position: relative; display: inline-block; vertical-align: top; width: 250px; font-size: 15px; margin: 30px 0 0 35px; }
 .list-advantage li:before { content: ""; position: absolute; z-index: 1; top: 20px; left: 50%; width: 90px; height: 90px; border-radius: 100%; margin: 0 0 0 -45px; background: #DCECFF; opacity: 0; filter: alpha(opacity=0); -webkit-transition: opacity linear 0.2s; -o-transition: opacity linear 0.2s; transition: opacity linear 0.2s; }
 
 .list-advantage .pic { position: relative; z-index: 2; width: 130px; height: 100px; display: block; margin: 0 auto 20px auto; background: url("../images/i/adv-sprite.svg") no-repeat; background-size: 700px 100px; background-position: 3px 0; }
