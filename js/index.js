@@ -80,6 +80,31 @@ $(document).ready(function() {
         var filename = $(this).val().substring($(this).val().lastIndexOf("\\") + 1);
         $(".download-btn").text( filename  || "Загрузить" );
      });
+     //vivus animation 
+     var svgLunch = new Vivus("lunch", {type: 'oneByOne',duration: 80,start: "manual"});
+     var svgMan = new Vivus("man", {type: 'oneByOne',duration: 80,start: "manual"},
+          function(){
+            svgLunch.play();
+          }
+      );
+     var svgMetro = new Vivus("metro", {type: 'oneByOne',duration: 80,start: "manual"},
+          function(){
+            svgMan.play()
+          }
+      );
+     var svgWindow = new Vivus("window", {type: 'oneByOne',duration: 80,start: "manual"},
+        function(){
+          svgMetro.play();
+        }
+      );
+
+     var svgBuilding = new Vivus("building", {type: 'oneByOne',duration: 80},
+      function(){
+        svgWindow.play();
+      }
+    );
+
+
      /////////////////////////////map
           var myMap;
 
@@ -95,12 +120,12 @@ $(document).ready(function() {
                           myMap = new ymaps.Map('map', {
                               // При инициализации карты обязательно нужно указать
                               // её центр и коэффициент масштабирования.
-                              center: [55.80239628, 49.21062750], // Москва
-                              zoom: 15,
+                              center: [55.79893027700552,37.5311994999999], // Москва
+                              zoom: 16,
                               controls:[]
                           });
 
-                      var myPlacemark = new ymaps.Placemark([55.80239628, 49.21062750],
+                      var myPlacemark = new ymaps.Placemark([55.79893027700552,37.5311994999999],
                          {
                         // Свойства.
                         hintContent: ''
