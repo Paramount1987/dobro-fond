@@ -1,55 +1,17 @@
-$(document).ready(function() {
+ $(document).ready(function() {
 		//one page slider
     $('#fullpage').fullpage({
         autoScrolling: false,
         fitToSection: false
       });
-    // var baloon = false;
-    // $('#pages').fullpage({
-    //    navigation: true,
-    //    scrollOverflow: true,
-    //    responsiveWidth: 1000,
-    //    scrollingSpeed: 1500,
-    //    afterRender: function(){
-    //    	$.fn.fullpage.reBuild();
-    //    },
-    //     onLeave: function(index, nextIndex, direction){
-    //         var leavingSection = $(this);
-
-    //         //after leaving section 2
-    //         if(index == 1){
-
-    //             $(".baloon").addClass('active'); 
-                
-    //             setTimeout(function(){
-    //               $(".baloon").removeClass('active');
-    //               baloon = true;
-    //               $.fn.fullpage.moveTo(2);
-    //             },800);
-    //             setTimeout(function(){baloon = false;},900);
-
-    //             if(!baloon) {
-
-    //               return false;
-    //             }
-    //         }
-    //     }
-    // });
-      ////.swipebox();
+//////////////////////////////////
     $( ".swipebox" ).swipebox();
-    //go to slide
-    // $(".up-arrow").click(function(){
- 			// 	$.fn.fullpage.moveTo(1);
-    // });
 
-    // $(".arrow-down").click(function(){
-    //     $.fn.fullpage.moveTo(2);
-    // });
-
+//////////////////////////////////////
     $('.up-arrow').click(function(){ 
       $('html,body').animate({ scrollTop: 0 }, 800);
     });
-
+///////////////////////////////////////
     $('.arrow-down').click(function(){ 
       var height = $(".page1 .fp-tableCell").height();
       $(".baloon").addClass('active');
@@ -59,15 +21,49 @@ $(document).ready(function() {
       },500)
       
     });
-             
+///////////////////////////////////////////////btn-app
+    $('.btn-app').click(function(){ 
+      var offset = $(".page7").offset();
 
-    //scroll horizontal for image
+        $('html,body').animate({ scrollTop: offset.top }, 900);
+      
+    });
+
+/////////////////////////////////////////////nav
+
+    $('.nav-inner span').click(function(){ 
+
+      $('.nav-inner span').removeClass('active');
+      $(this).addClass('active');
+      
+    });
+
+    var navOffset = $('.nav-inner').offset();
+
+
+      $('.nav-inner').affix({
+        offset: {
+          top: navOffset.top
+          
+        , bottom: $('.page6').outerHeight(true) + $('.page7').outerHeight(true)
+      
+        }
+      });
+
+
+    ///////////////////////////////select option
+     $('.selectpicker').selectpicker({
+          style: 'btn-info',
+          size: 7
+      });
+
+    /////////////////////////scroll horizontal for image
      $('.image-scroll').jScrollPane();
      $(window).resize(function(){
      	$('.image-scroll').jScrollPane();
      });
 
-     //carousel
+     ////////////////////////////carousel
      $("#reviews").owlCarousel({
       items : 3, //10 items above 1000px browser width
       itemsDesktop : [1400,2], //5 items between 1000px and 901px
@@ -80,30 +76,6 @@ $(document).ready(function() {
         var filename = $(this).val().substring($(this).val().lastIndexOf("\\") + 1);
         $(".download-btn").text( filename  || "Загрузить" );
      });
-     //vivus animation 
-     var svgLunch = new Vivus("lunch", {type: 'oneByOne',duration: 80,start: "manual"});
-     var svgMan = new Vivus("man", {type: 'oneByOne',duration: 80,start: "manual"},
-          function(){
-            svgLunch.play();
-          }
-      );
-     var svgMetro = new Vivus("metro", {type: 'oneByOne',duration: 80,start: "manual"},
-          function(){
-            svgMan.play()
-          }
-      );
-     var svgWindow = new Vivus("window", {type: 'oneByOne',duration: 80,start: "manual"},
-        function(){
-          svgMetro.play();
-        }
-      );
-
-     var svgBuilding = new Vivus("building", {type: 'oneByOne',duration: 80},
-      function(){
-        svgWindow.play();
-      }
-    );
-
 
      /////////////////////////////map
           var myMap;
@@ -141,6 +113,186 @@ $(document).ready(function() {
 
           }
 
+///////////////////////////slide hover
+  Navsly = {
+
+    init: function(){
+
+      Navsly.widthSly = $(".nav-sly").width();
+      Navsly.widthWrap = $(".nav-inner").width(); 
+      Navsly.maxValue = $(".nav-sly").width() - $(".nav-inner").width() + 25;
+
+      Navsly.maxRight = $(".nav-sly").width() - $(".nav-inner").width() + 25;
+
+      Navsly.positionSly = 0;
+      $(".nav-sly").css("left","-" + Navsly.positionSly  + "px");
+
+
+      Navsly.direction();
+      Navsly.eventHandler();
+    },
+
+    positionX: 0,
+    positionLeft: 0,
+    currentX: 0,
+    positionSly: 0,
+    left: false,
+    right: true,
+
+    direction: function(e){
+
+      $(".nav").on("mouseenter",function(e){
+        Navsly.positionX = e.pageX;
+        Navsly.currentX = e.pageX;
+      });
+
+    },
+
+    eventHandler: function(){
+
+      if(Navsly.isTouchDevice()){
+
+        var startPos = 0;
+        var currentE = 0;
+        var right = false;
+        var left = true;
+
+        $(".nav-inner").on("touchstart",function(event){
+          var e = event.originalEvent;
+          startPos = e.touches[0].pageX;
+          currentE = event.originalEvent;
+
+        });
+
+        $(".nav-inner").on("touchmove",function(event){
+
+          var e = event.originalEvent;
+
+
+          if( e.touches[0].pageX - startPos < 0){
+            
+            if(e.touches[0].pageX - currentE.touches[0].pageX > 0) startPos = e.touches[0].pageX;
+
+            Navsly.positionSly += currentE.touches[0].pageX - e.touches[0].pageX;
+            right = false;
+            left = true;
+
+           }else{
+
+            if(e.touches[0].pageX - currentE.touches[0].pageX < 0) startPos = e.touches[0].pageX;
+
+            Navsly.positionSly -= e.touches[0].pageX - currentE.touches[0].pageX;
+            right = true;
+            left = false;
+
+           }
+          
+
+        if(Navsly.positionSly > Navsly.maxRight) 
+            Navsly.positionSly = Navsly.maxRight;
+        if(Navsly.positionSly < 0) 
+            Navsly.positionSly = 0;
+
+
+        $(".nav-sly").css("left","-" + Navsly.positionSly  + "px");
+
+        currentE = event.originalEvent;
+
+
+        });
+
+        
+
+      }
+
+
+      $(".nav-inner").on("mousemove",function(e){   
+
+
+        var ratio =1;
+ 
+        var  pos = 1; 
+        
+        if (e.pageX == Navsly.currentX) return;
+
+        if(e.pageX > Navsly.currentX){
+          
+
+          if(Navsly.left) {
+            Navsly.positionX = e.pageX;
+            ratio = ( Navsly.maxValue  - Navsly.positionSly)/(Navsly.widthWrap - Navsly.positionX);
+          }
+          ratio = ( Navsly.maxValue)/(Navsly.widthWrap - Navsly.positionX);
+          pos = (e.pageX - Navsly.currentX) * ratio; 
+          Navsly.positionSly += pos;
+
+          Navsly.right = true;
+          Navsly.left = false;
+        }else{
+          
+
+         if(Navsly.right){
+            Navsly.positionX = e.pageX;
+            Navsly.positionleft = Navsly.positionSly;
+         } 
+
+          ratio = Navsly.positionleft/Navsly.positionX;
+
+          pos = ( Navsly.currentX - e.pageX ) * ratio;
+          Navsly.positionSly -= pos;
+
+          Navsly.left = true;
+          Navsly.right = false;
+        }  
+
+        if(Navsly.positionSly > Navsly.maxRight) 
+            Navsly.positionSly = Navsly.maxRight;
+        if(Navsly.positionSly < 0) 
+            Navsly.positionSly = 0;
+
+        $(".nav-sly").css("left","-" + Navsly.positionSly  + "px");
+
+        Navsly.currentX = e.pageX;
+        
+
+      });
+
+    },
+
+    isTouchDevice: function is_touch_device() {
+          return !!('ontouchstart' in window);
+    },
+
+    reload: function(){
+      setTimeout(Navsly.init,250);
+    }
+
+ };
+
+  
+var widthAllspan = 0;
+
+$(".nav-sly span").each(function(){
+  widthAllspan += $(this).width();
+});
+
+if( widthAllspan > $(".nav-inner").width() ){
+
+  $(".nav-sly").addClass("on");
+
+  $('.nav-inner').on('affixed.bs.affix affix-top.bs.affix',function(){
+       Navsly.reload();
+  });
+
+  Navsly.init();
+
+ 
+  $(window).resize(function(){
+    Navsly.reload();
+  });
+
+}
+//////////////////////
 
 });
 		
