@@ -152,54 +152,55 @@
 
       if(Navsly.isTouchDevice()){
 
-        var startPos = 0;
-        var currentE = 0;
-        var right = false;
-        var left = true;
+        $('.nav-inner').jScrollPane();
+        // var startPos = 0;
+        // var currentE = 0;
+        // var right = false;
+        // var left = true;
 
-        $(".nav-inner").on("touchstart",function(event){
-          var e = event.originalEvent;
-          startPos = e.touches[0].pageX;
-          currentE = event.originalEvent;
+        // $(".nav-inner").on("touchstart",function(event){
+        //   var e = event.originalEvent;
+        //   startPos = e.touches[0].pageX;
+        //   currentE = event.originalEvent;
 
-        });
+        // });
 
-        $(".nav-inner").on("touchmove",function(event){
+        // $(".nav-inner").on("touchmove",function(event){
 
-          var e = event.originalEvent;
+        //   var e = event.originalEvent;
 
 
-          if( e.touches[0].pageX - startPos < 0){
+        //   if( e.touches[0].pageX - startPos < 0){
             
-            if(e.touches[0].pageX - currentE.touches[0].pageX > 0) startPos = e.touches[0].pageX;
+        //     if(e.touches[0].pageX - currentE.touches[0].pageX > 0) startPos = e.touches[0].pageX;
 
-            Navsly.positionSly += currentE.touches[0].pageX - e.touches[0].pageX;
-            right = false;
-            left = true;
+        //     Navsly.positionSly += currentE.touches[0].pageX - e.touches[0].pageX;
+        //     right = false;
+        //     left = true;
 
-           }else{
+        //    }else{
 
-            if(e.touches[0].pageX - currentE.touches[0].pageX < 0) startPos = e.touches[0].pageX;
+        //     if(e.touches[0].pageX - currentE.touches[0].pageX < 0) startPos = e.touches[0].pageX;
 
-            Navsly.positionSly -= e.touches[0].pageX - currentE.touches[0].pageX;
-            right = true;
-            left = false;
+        //     Navsly.positionSly -= e.touches[0].pageX - currentE.touches[0].pageX;
+        //     right = true;
+        //     left = false;
 
-           }
+        //    }
           
 
-        if(Navsly.positionSly > Navsly.maxRight) 
-            Navsly.positionSly = Navsly.maxRight;
-        if(Navsly.positionSly < 0) 
-            Navsly.positionSly = 0;
+        // if(Navsly.positionSly > Navsly.maxRight) 
+        //     Navsly.positionSly = Navsly.maxRight;
+        // if(Navsly.positionSly < 0) 
+        //     Navsly.positionSly = 0;
 
 
-        $(".nav-sly").css("left","-" + Navsly.positionSly  + "px");
+        // $(".nav-sly").css("left","-" + Navsly.positionSly  + "px");
 
-        currentE = event.originalEvent;
+        // currentE = event.originalEvent;
 
 
-        });
+        // });
 
         
 
@@ -260,7 +261,8 @@
     },
 
     isTouchDevice: function is_touch_device() {
-          return !!('ontouchstart' in window);
+
+          return !!('ontouchstart' in window) ||  navigator.userAgent.indexOf("iPad") != -1 ||  navigator.userAgent.indexOf("iPhone") != -1 || navigator.userAgent.indexOf("iPod") != -1;
     },
 
     reload: function(){
